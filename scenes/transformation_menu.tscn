@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://1makvd8e3lms"]
+
+[ext_resource type="Script" uid="uid://2otorl18763w" path="res://scripts/transformation_menu.gd" id="1_7wg5n"]
+
+[node name="TransformationMenu" type="CanvasLayer" unique_id=1328617857]
+script = ExtResource("1_7wg5n")
+
+[node name="UI" type="Control" parent="." unique_id=521647016]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="UI" unique_id=455260107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6509804)
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/Background" unique_id=51450503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/Background/CenterContainer" unique_id=447007007]
+custom_minimum_size = Vector2(650, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Background/CenterContainer/PanelContainer" unique_id=533146918]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="UI/Background/CenterContainer/PanelContainer/VBoxContainer" unique_id=1222349612]
+layout_mode = 2
+text = "SELECT FORM"
+
+[node name="FormList" type="HBoxContainer" parent="UI/Background/CenterContainer/PanelContainer/VBoxContainer" unique_id=130577773]
+layout_mode = 2
+alignment = 1
+
+[node name="Instructions" type="Label" parent="UI/Background/CenterContainer/PanelContainer/VBoxContainer" unique_id=769550098]
+layout_mode = 2
+text = "Text: A / D: SELECT     SPACE: CONFIRM     ESC: CANCEL"

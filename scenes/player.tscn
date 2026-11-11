@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://1lqlb3g6wjls"]
+
+[ext_resource type="Texture2D" uid="uid://k1vkr8rfarpr" path="res://assets/blank_form/Front/Idle/frame_01.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bwndrge3ew6gu" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="SpriteFrames" uid="uid://dfp860ctp45ai" path="res://assets/blank_form/animations.tres" id="3_4ni07"]
+[ext_resource type="Texture2D" uid="uid://bxieou4lrf3hq" path="res://assets/transformations/polar_form/Front/Idle/frame_01.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://cwf388jd3t8cp" path="res://assets/transformations/orca_form/Front/Idle/frame_01.png" id="4_l71n6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bn84"]
+size = Vector2(24, 16)
+
+[node name="Player" type="CharacterBody2D" unique_id=1802425681]
+script = ExtResource("1_g2els")
+
+[node name="Blank" type="Sprite2D" parent="." unique_id=679004958]
+visible = false
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3vyb7")
+
+[node name="Upgrade_Polar" type="Sprite2D" parent="." unique_id=222622449]
+visible = false
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qlg0r")
+
+[node name="Upgrade_Orca" type="Sprite2D" parent="." unique_id=752500073]
+visible = false
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_l71n6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1416567888]
+visible = false
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_5bn84")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1248313248]
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("3_4ni07")
+animation = &"idle_up"
