@@ -33,3 +33,10 @@ func _draw() -> void:
 	for x in range(60, 930, 90):
 		draw_rect(Rect2(x, 6, 36, 4), CYAN)
 		draw_rect(Rect2(x, 530, 36, 3), Color("287c8b"))
+
+	# A restrained white-blue glow follows only the room's inner wall edge.
+	# Keep the glow fully inside the floor so wall sprites cannot cover its edge.
+	var wall_outline := Rect2(34, 34, 892, 472)
+	draw_rect(wall_outline, Color(0.72, 0.9, 1.0, 0.08), false, 7.0)
+	draw_rect(wall_outline, Color(0.78, 0.92, 1.0, 0.25), false, 3.0)
+	draw_rect(wall_outline, Color(0.88, 0.96, 1.0, 0.72), false, 1.0)

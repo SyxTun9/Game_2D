@@ -1,9 +1,10 @@
-[gd_scene format=4]
-
+[gd_scene format=3 uid="uid://cjjbujkqff5k0"]
 
 [ext_resource type="PackedScene" uid="uid://1lqlb3g6wjls" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://1makvd8e3lms" path="res://scenes/transformation_menu.tscn" id="3_sugp2"]
-[ext_resource type="Script" path="res://scripts/lobby_visuals.gd" id="4_visuals"]
+[ext_resource type="Script" uid="uid://ca5an2o3ht3qd" path="res://scripts/lobby_visuals.gd" id="4_visuals"]
+[ext_resource type="Texture2D" uid="uid://bg0vttoik3uje" path="res://assets/item/teleport_idle_frame_1.png" id="5_teleport_pad"]
+[ext_resource type="SpriteFrames" path="res://assets/item/teleport_pad_vfx_frames.tres" id="6_teleport_vfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bn84"]
 size = Vector2(960, 30)
@@ -14,16 +15,32 @@ size = Vector2(30, 540)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(30, 540)
 
-[node name="Lobby" type="Node2D"]
+[node name="Lobby" type="Node2D" unique_id=1538231866]
 y_sort_enabled = true
 
-[node name="ShipInterior" type="Node2D" parent="."]
+[node name="ShipInterior" type="Node2D" parent="." unique_id=1109203902]
 z_index = -2
 script = ExtResource("4_visuals")
 
+[node name="TeleportPad" type="Sprite2D" parent="." unique_id=1982564885]
+z_index = -1
+texture_filter = 1
+position = Vector2(480, 270)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_teleport_pad")
+
+[node name="TeleportPadVFX" type="AnimatedSprite2D" parent="." unique_id=1346289901]
+z_index = 1
+texture_filter = 1
+position = Vector2(480, 228.5)
+scale = Vector2(0.3, 0.23744914)
+sprite_frames = ExtResource("6_teleport_vfx")
+animation = &"idle"
+autoplay = "idle"
+
 [node name="Player" parent="." unique_id=1802425681 instance=ExtResource("1_o5qli")]
 position = Vector2(480, 270)
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.9, 0.9)
 
 [node name="WallTop" type="StaticBody2D" parent="." unique_id=1196143615]
 position = Vector2(480, 15)
