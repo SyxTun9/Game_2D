@@ -44,6 +44,8 @@ func change_scene(scene: PackedScene, carry_player: bool = false) -> void:
 		var carried_body := carried_player as CharacterBody2D
 		if carried_body != null:
 			carried_body.velocity = Vector2.ZERO
+		if active_scene.has_method("configure_player"):
+			active_scene.call("configure_player", carried_player)
 
 	if active_scene.has_signal("map_requested"):
 		active_scene.connect("map_requested", _on_map_requested, CONNECT_ONE_SHOT)
