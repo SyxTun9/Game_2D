@@ -95,6 +95,9 @@ func _process(_delta: float) -> void:
 
 
 func open_menu() -> void:
+	if not get_parent().is_in_group("gameplay_map"):
+		return
+
 	if forms.is_empty():
 		return
 

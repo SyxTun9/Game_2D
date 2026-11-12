@@ -5,6 +5,52 @@
 [ext_resource type="Script" uid="uid://ca5an2o3ht3qd" path="res://scripts/lobby_visuals.gd" id="4_visuals"]
 [ext_resource type="Texture2D" uid="uid://bg0vttoik3uje" path="res://assets/item/teleport_idle_frame_1.png" id="5_teleport_pad"]
 [ext_resource type="SpriteFrames" path="res://assets/item/teleport_pad_vfx_frames.tres" id="6_teleport_vfx"]
+[ext_resource type="Script" path="res://scripts/lobby.gd" id="7_lobby"]
+
+[sub_resource type="RectangleShape2D" id="PadTopBoundary"]
+size = Vector2(25, 12.25)
+
+[sub_resource type="RectangleShape2D" id="PadSideBoundary"]
+size = Vector2(25, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pc087"]
+size = Vector2(17, 15.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apkv3"]
+size = Vector2(22, 12.875)
+
+[sub_resource type="RectangleShape2D" id="PadStepBoundary"]
+size = Vector2(17, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omrgh"]
+size = Vector2(31.75, 6.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncsg4"]
+size = Vector2(21, 8.3125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07nfq"]
+size = Vector2(21.5, 10.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oipnb"]
+size = Vector2(38.375, 10.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yad6j"]
+size = Vector2(17.1875, 11.15625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1sns"]
+size = Vector2(29.59375, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyhay"]
+size = Vector2(20.5, 17.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6qq2"]
+size = Vector2(24, 18.6875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgcd7"]
+size = Vector2(20, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqo1b"]
+size = Vector2(20, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bn84"]
 size = Vector2(960, 30)
@@ -15,8 +61,12 @@ size = Vector2(30, 540)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(30, 540)
 
+[sub_resource type="RectangleShape2D" id="TeleportTriggerShape"]
+size = Vector2(42, 32)
+
 [node name="Lobby" type="Node2D" unique_id=1538231866]
 y_sort_enabled = true
+script = ExtResource("7_lobby")
 
 [node name="ShipInterior" type="Node2D" parent="." unique_id=1109203902]
 z_index = -2
@@ -39,8 +89,86 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Player" parent="." unique_id=1802425681 instance=ExtResource("1_o5qli")]
-position = Vector2(480, 270)
+position = Vector2(479.00003, 410)
 scale = Vector2(0.9, 0.9)
+
+[node name="TeleportTrigger" type="Area2D" parent="." unique_id=1000278491]
+position = Vector2(477, 320)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportTrigger" unique_id=151580522]
+shape = SubResource("TeleportTriggerShape")
+
+[node name="TeleportPadBoundary" type="StaticBody2D" parent="." unique_id=19960604]
+
+[node name="Boundary5" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=738553541]
+position = Vector2(438, 324)
+shape = SubResource("PadTopBoundary")
+
+[node name="Boundary1" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=1253766402]
+position = Vector2(410.5, 291.5)
+shape = SubResource("PadSideBoundary")
+
+[node name="Boundary2" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=1642402663]
+position = Vector2(414.5, 284.75)
+shape = SubResource("RectangleShape2D_pc087")
+
+[node name="Boundary11" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=780106617]
+position = Vector2(422, 271.4375)
+shape = SubResource("RectangleShape2D_apkv3")
+
+[node name="Boundary3" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=658617052]
+position = Vector2(413, 307)
+shape = SubResource("PadStepBoundary")
+
+[node name="Boundary12" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=2058947493]
+position = Vector2(453.875, 256.6875)
+shape = SubResource("RectangleShape2D_omrgh")
+
+[node name="Boundary15" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=1843842604]
+position = Vector2(433.5, 264.15625)
+shape = SubResource("RectangleShape2D_ncsg4")
+
+[node name="Boundary13" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=347989489]
+position = Vector2(475, 254.6875)
+shape = SubResource("RectangleShape2D_07nfq")
+
+[node name="Boundary14" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=1950568232]
+position = Vector2(474, 256)
+shape = SubResource("RectangleShape2D_oipnb")
+
+[node name="Boundary16" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=429827660]
+position = Vector2(509.59375, 261.57813)
+shape = SubResource("RectangleShape2D_yad6j")
+
+[node name="Boundary17" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=908602695]
+position = Vector2(485.79688, 254.5)
+shape = SubResource("RectangleShape2D_m1sns")
+
+[node name="Boundary4" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=1163143032]
+position = Vector2(424, 316)
+shape = SubResource("PadStepBoundary")
+
+[node name="Boundary6" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=1412037317]
+position = Vector2(510, 323)
+shape = SubResource("PadStepBoundary")
+
+[node name="Boundary7" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=134580242]
+position = Vector2(527.75, 318.375)
+shape = SubResource("RectangleShape2D_dyhay")
+
+[node name="Boundary8" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=1072523191]
+position = Vector2(541, 289.34375)
+shape = SubResource("RectangleShape2D_q6qq2")
+
+[node name="Boundary9" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=1160771564]
+position = Vector2(538, 306)
+shape = SubResource("RectangleShape2D_rgcd7")
+
+[node name="Boundary10" type="CollisionShape2D" parent="TeleportPadBoundary" unique_id=963186055]
+position = Vector2(530, 272)
+shape = SubResource("RectangleShape2D_lqo1b")
 
 [node name="WallTop" type="StaticBody2D" parent="." unique_id=1196143615]
 position = Vector2(480, 15)

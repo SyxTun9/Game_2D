@@ -16,7 +16,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 
 	# Xu ly phim Space
-	if Input.is_action_just_pressed("open_transformation"):
+	if Input.is_action_just_pressed("open_transformation") and get_parent().is_in_group("gameplay_map"):
 		if transformation_menu.is_selecting:
 			transformation_menu.confirm_selection()
 		else:
